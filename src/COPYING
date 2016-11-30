@@ -1,0 +1,17 @@
+/*
+   3D parallel tempering ising model simulation
+   on NVIDIA GPUs using CUDA framework
+
+   DEVELOPERS:
+   Ye Fang <yfang11 AT lsu.edu>, LSU ECE, CCT
+   Sheng Feng <sfeng4 AT lsu.edu>, LSU Physics
+   Ka-Ming Tam <kmtam AT phys.lsu.edu>, LSU Physics
+
+
+   We currently reserve all rights to this code. Do not redistribute without our permission.
+
+
+   Y. Fang, S. Feng, K-M. Tam
+   B. Thakur, Z. Yun, A. Papke, S. Hall, C. Thomasson
+   J. Moreno, J. Ramanujam, M. Jarrel
+*/

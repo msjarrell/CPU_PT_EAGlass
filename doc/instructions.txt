@@ -1,0 +1,98 @@
+Description
+===============
+Purpose
+--------
+Simulation of equilibrium state of the 3d Edwards-Anderson model.
+
+Specifications and limits
+---------
+This code is optimized for systems sized no larger than 16^3.
+The code is implemented with C/CUDA for NVidia GPUs.
+On GTX580(Fermi) it achieves 33.5 picosecond per spin flip attempt.
+
+
+Extent of testing.
+----------
+This code is tested with the following setups: 
+Intel Core i7 x990 CPU
+NVIDIA GeForce GTX 580 GPU card
+Linux 2.6.32 x86-64 
+CUDA toolkit version 4.1
+gcc 4.4.6
+
+The data generated from the code is tested against published results in 
+literature.
+
+Documentation of Features
+=========================
+Command-line options
+-----------
+None
+
+
+Input file formats
+-----------
+None input file is needed. Parameters are specified via editing
+the header file <parameters.h>.
+
+Output format.
+------------
+HDF5 output file with the following datasets:
+
+DATASET "q": the spin glass overlap of momentum zero.
+
+DATASET "qk_real_01"~"qk_real_03": the real part of spin glass overlap of 
+  momentum (2Pi/L,0,0), (0,2Pi/L,0), and (0,0,2Pi/L).
+
+DATASET "qk_imag_01"~"qk_imag_03": the imaginary part of spin glass overlap 
+  of momentum (2Pi/L,0,0), (0,2Pi/L,0) and (0,0,2Pi/L).
+
+DATASET "qk_real_04"~"qk_real_09": the real part of spin glass overlap of 
+  momentum (2Pi/L,2Pi/L,0) and equivalent points related by point group 
+  symmetry.
+
+DATASET "qk_imag_04"~"qk_imag_09": the imaginary part of momentum 
+  (2Pi/L,2Pi/L,0) and equivalent points related by point group symmetry.
+
+
+Packaged input data
+===================
+Scientific significance
+------------
+Refer to papers.
+arXiv:1403.4560 
+arXiv:1311.5582
+
+Setup and Go
+========================
+Prerequisites
+-----------
+The code is tested with the following configuration:
+A CUDA capable GPU with compute capability 2.0 or above
+A x86-64 CPU
+Linux 2.6.32 x86-64 
+CUDA toolkit version 4
+HDF5 1.8.10 (h5pcc REQUIRED)
+openmpi 1.6.2
+gcc 4.4.6
+
+Step-by-Step
+------------
+1. Download the package from ...
+2. Extract the package into PATH
+3. $ cd PATH/src
+4. $ make
+5. $ mpirun -np TOTAL_NUMBER_OF_GPUS -npernode NUMBER_OF_GPUS_PER_NODE ./mpi_ising
+6. See results in the output directory "L??H??_??_??_DATA_TIME" and verify. 
+
+
+Development History
+====================
+Discussion of origin of code
+------------
+Written from scratch.
+
+
+Changes in each release.
+------------
+First release.
